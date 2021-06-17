@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import { productController } from "./../controllers/products.controller.js";
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
-module.exports = router;
+const productRoute = express.Router();
+
+// Post products to the database
+productRoute.post('/post', productController)
+
+export { productRoute }
