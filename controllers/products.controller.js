@@ -28,7 +28,8 @@ const postProducts = (req, res, next) => {
 const getProducts = (req, res) => {
     ProductModel.find({}, (err, data) => {
         if (err) res.status(400).json({
-            error: "Error getting data"
+            error: "Error getting data",
+            err
         });
         else {
             res.status(200).json({
