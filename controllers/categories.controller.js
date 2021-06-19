@@ -1,7 +1,7 @@
 import { CategoryModel } from './../models/categories.model.js';
 
 
-export const categoryController = (req, res) => {
+const postCategory = (req, res) => {
     // Creates new category object
     let newCategory = new CategoryModel(req.body);
     
@@ -30,3 +30,19 @@ export const categoryController = (req, res) => {
             }
         });
 }
+
+const getCategory = (req, res) => {
+    CategoryModel.find({}, (err, data) => {
+        if (err) res.status(400).json({
+            error: "Error getting data"
+        });
+        else {
+            res.status(200).json({
+                status: 200,
+                data: data
+            })
+        }
+    })
+}
+
+export {postCategory, getCategory}
