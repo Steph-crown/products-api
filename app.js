@@ -3,8 +3,9 @@ var app = express();
 import { productRoute } from './routes/index.js';
 import { categoriesRoute } from "./routes/categories.js";
 import { globalErrorHandler } from './controllers/error.controller.js';
+import cors from 'cors';
 
-
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
